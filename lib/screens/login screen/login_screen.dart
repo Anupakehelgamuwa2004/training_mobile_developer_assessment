@@ -17,7 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
-
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -118,36 +117,33 @@ class _LoginScreenState extends State<LoginScreen> {
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue,
+                                  backgroundColor: Colors.blueAccent,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 16),
-                                  child: Text('Login', style: TextStyle(fontSize: 16)),
+                                  child: Text(
+                                    'Login',
+                                    style: TextStyle(fontSize: 16, color: Colors.white),
+                                  ),
                                 ),
                               ),
                             ),
                       SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/register');
-                          },
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.blue),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Text('Register', style: TextStyle(fontSize: 16)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/register');
+                        },
+                        child: Text(
+                          "Don't have an account? Register",
+                          style: TextStyle(
+                            color: Colors.blueAccent,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
