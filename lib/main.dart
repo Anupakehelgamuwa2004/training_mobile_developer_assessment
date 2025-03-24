@@ -4,11 +4,8 @@ import 'package:training_mobile_developer_assessment/screens/Item%20screen/item_
 import 'package:training_mobile_developer_assessment/screens/home%20screen/home_screen.dart';
 import 'package:training_mobile_developer_assessment/screens/login%20screen/login_screen.dart';
 import 'package:training_mobile_developer_assessment/screens/signup%20screen/register_screen.dart';
-
-
 import 'providers/auth_provider.dart';
 import 'providers/item_provider.dart';
-
 
 void main() {
   runApp(
@@ -29,8 +26,8 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Mobile Dev Assessment',
+      debugShowCheckedModeBanner: false, // <-- This line removes the debug banner
       theme: ThemeData(primarySwatch: Colors.blue),
-      // Check if user is already logged in
       home: authProvider.isLoggedIn ? HomeScreen() : LoginScreen(),
       routes: {
         '/login': (context) => LoginScreen(),

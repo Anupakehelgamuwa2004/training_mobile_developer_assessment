@@ -24,19 +24,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            // Email
             TextField(
               controller: _emailController,
               decoration: InputDecoration(labelText: 'Email'),
             ),
+            // Password
             TextField(
               controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(labelText: 'Password'),
             ),
             SizedBox(height: 16),
+            // Error message
             if (_errorMessage.isNotEmpty)
               Text(_errorMessage, style: TextStyle(color: Colors.red)),
             SizedBox(height: 16),
+
+            // Register Button
             _isLoading
                 ? CircularProgressIndicator()
                 : ElevatedButton(
@@ -46,19 +51,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         _isLoading = true;
                         _errorMessage = '';
                       });
+
                       bool success = await authProvider.register(
-                        _emailController.text,
-                        _passwordController.text,
+                        _emailController.text.trim(),
+                        _passwordController.text.trim(),
                       );
-                      setState(() {
-                        _isLoading = false;
-                      });
+
+                      setState(() => _isLoading = false);
+
                       if (success) {
-                        // Option: Navigate to login or directly to home
-                        Navigator.pop(context); // back to Login
+                        // Option: navigate back to login screen
+                        Navigator.pop(context);
                       } else {
                         setState(() {
-                          _errorMessage = 'Registration failed';
+                          _errorMessage = 'Registration failed.';
                         });
                       }
                     },

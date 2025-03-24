@@ -5,13 +5,14 @@ import 'package:training_mobile_developer_assessment/services/api_services.dart'
 
 class ItemProvider extends ChangeNotifier {
   final ApiService _apiService = ApiService();
-  List<ItemModel> _items = [];
+
   bool _isLoading = false;
   String _error = '';
+  List<ItemModel> _items = [];
 
-  List<ItemModel> get items => _items;
   bool get isLoading => _isLoading;
   String get error => _error;
+  List<ItemModel> get items => _items;
 
   Future<void> loadItems() async {
     _isLoading = true;

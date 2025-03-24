@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:training_mobile_developer_assessment/providers/auth_provider.dart';
 
 
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -24,19 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            // Email
             TextField(
               controller: _emailController,
               decoration: InputDecoration(labelText: 'Email'),
             ),
+            // Password
             TextField(
               controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(labelText: 'Password'),
             ),
             SizedBox(height: 16),
-            if (_errorMessage.isNotEmpty) 
+
+            // Error message
+            if (_errorMessage.isNotEmpty)
               Text(_errorMessage, style: TextStyle(color: Colors.red)),
             SizedBox(height: 16),
+
+            // Login Button
             _isLoading
                 ? CircularProgressIndicator()
                 : ElevatedButton(
@@ -46,14 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         _isLoading = true;
                         _errorMessage = '';
                       });
+
                       bool success = await authProvider.login(
-                        _emailController.text,
-                        _passwordController.text,
+                        _emailController.text.trim(),
+                        _passwordController.text.trim(),
                       );
-                      setState(() {
-                        _isLoading = false;
-                      });
+
+                      setState(() => _isLoading = false);
+
                       if (success) {
+                        // Navigate to Home
                         Navigator.pushReplacementNamed(context, '/home');
                       } else {
                         setState(() {
@@ -62,6 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                   ),
+
+            // Navigate to Register
             TextButton(
               child: Text('Don\'t have an account? Register'),
               onPressed: () {
