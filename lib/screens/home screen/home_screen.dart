@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.blueGrey,
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade200, Colors.deepPurple.shade600],
+            colors: [Colors.white, Colors.grey.shade200],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -47,19 +47,19 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Welcome Header
+            // Professional Welcome Header
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'Welcome to Your Dashboard!',
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
                 ),
               ),
             ),
-            // Product Grid
+            // Dynamic Product Grid
             Expanded(
               child: itemProvider.isLoading
                   ? Center(child: CircularProgressIndicator())
@@ -67,12 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ? Center(
                           child: Text(
                             itemProvider.error,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.red),
                           ),
                         )
                       : GridView.builder(
                           padding: EdgeInsets.all(16),
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisSpacing: 16,
                             crossAxisSpacing: 16,
@@ -90,31 +91,34 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                               },
                               child: Card(
+                                color: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
-                                elevation: 4,
+                                elevation: 3,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    // Product Image with error handling
+                                    // Professional Product Image with Error Handling
                                     ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(16),
-                                        topRight: Radius.circular(16),
-                                      ),
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(12)),
                                       child: Image.network(
                                         item.imageUrl,
-                                        height: 100,
+                                        height: 120,
                                         width: double.infinity,
                                         fit: BoxFit.cover,
-                                        errorBuilder: (context, error, stackTrace) {
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
                                           return Container(
-                                            height: 100,
+                                            height: 120,
                                             width: double.infinity,
-                                            color: Colors.grey.shade200,
-                                            child: Icon(Icons.broken_image,
-                                                color: Colors.red, size: 50),
+                                            color: Colors.grey.shade300,
+                                            child: Icon(
+                                              Icons.image,
+                                              size: 50,
+                                              color: Colors.grey.shade600,
+                                            ),
                                           );
                                         },
                                       ),
@@ -126,16 +130,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
                                         ),
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 8.0),
                                       child: Text(
                                         item.description,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(fontSize: 12),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.black54,
+                                        ),
                                       ),
                                     ),
                                     Spacer(),
@@ -146,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.deepPurple,
+                                          color: Colors.blueGrey,
                                         ),
                                       ),
                                     ),
