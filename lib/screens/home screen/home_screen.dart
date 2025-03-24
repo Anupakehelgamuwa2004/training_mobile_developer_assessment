@@ -66,9 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   : itemProvider.error.isNotEmpty
                       ? Center(
                           child: Text(
-                          itemProvider.error,
-                          style: TextStyle(color: Colors.white),
-                        ))
+                            itemProvider.error,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
                       : GridView.builder(
                           padding: EdgeInsets.all(16),
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -107,8 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         height: 100,
                                         width: double.infinity,
                                         fit: BoxFit.cover,
-                                        errorBuilder:
-                                            (context, error, stackTrace) {
+                                        errorBuilder: (context, error, stackTrace) {
                                           return Container(
                                             height: 100,
                                             width: double.infinity,
@@ -130,8 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 8.0),
+                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                       child: Text(
                                         item.description,
                                         maxLines: 2,

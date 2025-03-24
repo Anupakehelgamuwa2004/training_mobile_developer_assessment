@@ -8,7 +8,7 @@ class ApiService {
     // Simulate network delay
     await Future.delayed(Duration(seconds: 1));
 
-    // Sample product line data
+    // Mock product data
     final List<Map<String, dynamic>> mockData = [
       {
         'id': 1,
@@ -40,6 +40,7 @@ class ApiService {
       },
     ];
 
+    // Convert each map to an ItemModel instance
     return mockData.map((json) => ItemModel.fromJson(json)).toList();
   }
 }
