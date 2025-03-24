@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:training_mobile_developer_assessment/model/item_model.dart';
-
 import 'package:training_mobile_developer_assessment/providers/auth_provider.dart';
 import 'package:training_mobile_developer_assessment/providers/item_provider.dart';
 
