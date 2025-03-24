@@ -118,14 +118,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     }
                                   }
                                 },
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 16),
-                                  child: Text('Login', style: TextStyle(fontSize: 16)),
-                                ),
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 16),
+                                  child: Text('Login', style: TextStyle(fontSize: 16)),
                                 ),
                               ),
                             ),

@@ -120,14 +120,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     }
                                   }
                                 },
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 16),
-                                  child: Text('Register', style: TextStyle(fontSize: 16)),
-                                ),
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 16),
+                                  child: Text('Register', style: TextStyle(fontSize: 16)),
                                 ),
                               ),
                             ),
