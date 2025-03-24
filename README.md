@@ -156,7 +156,7 @@ This separation allows for easy scalability and maintenance.
 Contact
 For questions or suggestions, please contact:
 ---
-Your Emmail: anupakehel8403@gmail.com
+Your Email: anupakehel8403@gmail.com
 ---
-GitHub: Anupakehel2004
+GitHub: Anupakehelgamuwa2004
 ---
