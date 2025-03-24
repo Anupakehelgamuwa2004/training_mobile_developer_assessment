@@ -19,7 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
     final authProvider = Provider.of<AuthProvider>(context);
 
     return Scaffold(
-      // Remove the AppBar and use a full screen gradient background
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -119,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
@@ -130,13 +130,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                       SizedBox(height: 16),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/register');
-                        },
-                        child: Text(
-                          'Don\'t have an account? Register',
-                          style: TextStyle(decoration: TextDecoration.underline),
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(color: Colors.blue),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: Text('Register', style: TextStyle(fontSize: 16)),
+                          ),
                         ),
                       ),
                     ],

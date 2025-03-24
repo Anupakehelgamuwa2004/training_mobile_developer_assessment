@@ -121,6 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.deepPurple,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
@@ -131,6 +132,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                             ),
+                      SizedBox(height: 16),
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(color: Colors.deepPurple),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: Text('Back to Login', style: TextStyle(fontSize: 16)),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
